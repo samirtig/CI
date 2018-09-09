@@ -11,6 +11,11 @@ node {
              description: 'isBar should be true',
              name: 'isBar'
            ),
+           choice(
+             choices: ['US-EAST-1', 'US-WEST-2'],
+             description: 'What AWS region?',
+             name: 'region'
+           ),
          ])
        ])
 
