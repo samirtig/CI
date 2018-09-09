@@ -12,7 +12,7 @@ node {
              name: 'isBar'
            ),
            choice(
-             choices: ['US-EAST-1', 'US-WEST-2'],
+             choices: "US-EAST-1\US-WEST-2",
              description: 'What AWS region?',
              name: 'region'
            ),
