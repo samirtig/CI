@@ -45,21 +45,31 @@ node {
 
          def choice1
          def choice2
-         choice1 = input( id: 'userInput', message: 'Select your choice', parameters: [ [$class: 'ChoiceParameterDefinition', choices: 'aa\nbb', description: '', name: ''] ])
-         if(choice1.equals("aa")){
-             choice2 = input( id: 'userInput', message: 'Select your choice', parameters: [ [$class: 'ChoiceParameterDefinition', choices: 'yy\nww', description: '', name: ''] ])
-         }else{
-            choice2 = input( id: 'userInput', message: 'Select your choice', parameters: [ [$class: 'ChoiceParameterDefinition', choices: 'gg\nkk', description: '', name: ''] ])
-         }
+
          List params = []
+              def dd = parameters {[
+                              $class              : 'ParametersDefinitionProperty',
+                              parameterDefinitions: [
+                                      [
+                                              $class     : 'ChoiceParameterDefinition',
+                                              choices    : 'aaa\nbbb',
+                                              description: 'select your choice : ',
+                                              name       : 'choice1'
+                                      ],
+                                      [
+                                              $class     : 'ChoiceParameterDefinition',
+                                              choices    : 'ccc\nddd',
+                                              description: 'select another choice : ',
+                                              name       : 'choice2'
+                                      ]]}
                 List props = []
 
                 Inst1 = dropDown.newInst("DDX")
                 Inst2 = dropDown.newInst("DDY")
 
                 params << booleanParam(name: 'BOOLX', defaultValue: true, description: '')
-                params << choice1
-                params << choice2
+                params << Inst1
+                params << dd
 
                 props << parameters(params)
                 properties(props)
