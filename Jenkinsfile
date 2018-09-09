@@ -1,7 +1,7 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 node {
 
-    def multiSelect= new ExtendedChoiceParameterDefinition(
+    def multiSelect= new ExtendedChoiceParameterDefinition("name", 
             "PT_MULTI_SELECT",
                        "blue,green,yellow,blue",
                        "project name",
