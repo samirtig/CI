@@ -61,7 +61,7 @@ node {
                                               choices    : 'ccc\nddd',
                                               description: 'select another choice : ',
                                               name       : 'choice2'
-                                      ]]}
+                                      ]]]}
                 List props = []
 
                 Inst1 = dropDown.newInst("DDX")
