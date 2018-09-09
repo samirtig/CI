@@ -1,7 +1,7 @@
+import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 node {
 
-    com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition test = new com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
-                ("name",
+    def multiSelect= new ExtendedChoiceParameterDefinition("name",
                 "PT_MULTI_SELECT",
                 "blue,green,yellow,blue",
                 "project name",
@@ -51,6 +51,7 @@ node {
                                     description: 'What AWS region?',
                                     name: 'region'
                             ),
+                            multiSelect,
                     ])
             ])
     }
