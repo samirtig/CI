@@ -5,8 +5,8 @@ class dropDown
           def com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition test =
             new com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition(
               name,
-              "PT_MULTI_SELECT",
-              "A,B,C,D,E,F",  // displayed selection values
+              "PT_CHECKBOX",
+              "Aeeeee,Bccccc,Cwwwww,Dqqqqq,Eqqqqq,Fxxxxxxx",  // displayed selection values
               null,//project name
               null,null,null,
               null,// bindings
@@ -29,7 +29,7 @@ class dropDown
           return test
   }
    }
-   
+
 node {
 
 
