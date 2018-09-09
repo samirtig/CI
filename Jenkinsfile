@@ -3,7 +3,7 @@ class dropDown
       def static newInst(name)
       {
           def com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition test =
-            new com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition("name", 
+            new com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition("name",
               "PT_MULTI_SELECT",
                          "blue,green,yellow,blue",
                          "project name",
@@ -42,6 +42,15 @@ node {
 
 
     stage('init') {
+
+         def choice1
+         def choice2
+         choice1 = input( id: 'userInput', message: 'Select your choice', parameters: [ [\$class: 'ChoiceParameterDefinition', choices: 'aa\nbb', description: '', name: ''] ])
+                 if(choice1.equals("aa")){
+                     choice2 = input( id: 'userInput', message: 'Select your choice', parameters: [ [\$class: 'ChoiceParameterDefinition', choices: 'yy\nww', description: '', name: ''] ])
+                 }else{
+                     choice2 = input( id: 'userInput', message: 'Select your choice', parameters: [ [\$class: 'ChoiceParameterDefinition', choices: 'gg\nkk', description: '', name: ''] ])
+                 }
          List params = []
                 List props = []
 
@@ -49,8 +58,8 @@ node {
                 Inst2 = dropDown.newInst("DDY")
 
                 params << booleanParam(name: 'BOOLX', defaultValue: true, description: '')
-                params << Inst1
-                params << Inst2
+                params << choice1
+                params << choice2
 
                 props << parameters(params)
                 properties(props)
