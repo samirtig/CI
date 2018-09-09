@@ -2,38 +2,37 @@ import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoicePara
 node {
 
     def multiSelect= new ExtendedChoiceParameterDefinition(
-            "name",
-            "PT_CHECKBOX",
-            "VALUE, A, B",
-            null,//project name
-            null,
-            null,
-            null,
-            null,// bindings
-            null,
-            null, // propertykey
-            "VALUE, B", //default value
-            null,
-            null,
-            null,
-            null, //default bindings
-            null,
-            null,
-            null, //descriptionPropertyValue
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,// javascript file
-            null, // javascript
-            false, // save json param to file
-            false, // quote
-            2, // visible item count
-            "DESC",
-            ","
-        )
+            "PT_MULTI_SELECT",
+                       "blue,green,yellow,blue",
+                       "project name",
+                       "",
+                       "",
+                       "",
+                       "",
+                       "",
+                       "",
+                       "",
+                       "",
+                       "",
+                       "",
+                       "",
+                       "",
+                       "",
+                       "blue,green,yellow,blue",
+                       "",
+                       "",
+                       "",
+                       "",
+                       "",
+                       "",
+                       "",
+                       "",
+                       false,
+                       false,
+                       3,
+                       "multiselect",
+                       ",")
+def userInput = input  id: 'customID', message: 'Let\'s promote?', ok: 'Release!', parameters:  [multiSelect]
 
     stage('init') {
          properties([
@@ -53,7 +52,7 @@ node {
                                     description: 'What AWS region?',
                                     name: 'region'
                             ),
-                            multiSelect,
+                            userInput,
                     ])
             ])
     }
