@@ -1,37 +1,39 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 node {
 
-    def multiSelect= new ExtendedChoiceParameterDefinition("name",
-                "PT_MULTI_SELECT",
-                "blue,green,yellow,blue",
-                "project name",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "blue,green,yellow,blue",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                false,
-                false,
-                3,
-                "multiselect",
-                ",")
+    def multiSelect= new ExtendedChoiceParameterDefinition(
+            "name",
+            "PT_CHECKBOX",
+            "VALUE, A, B",
+            null,//project name
+            null,
+            null,
+            null,
+            null,// bindings
+            null,
+            null, // propertykey
+            "VALUE, B", //default value
+            null,
+            null,
+            null,
+            null, //default bindings
+            null,
+            null,
+            null, //descriptionPropertyValue
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,// javascript file
+            null, // javascript
+            false, // save json param to file
+            false, // quote
+            2, // visible item count
+            "DESC",
+            ","
+        )
 
     stage('init') {
          properties([
