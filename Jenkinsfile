@@ -31,7 +31,7 @@ node {
           )
           return test
   }
-
+   }
     stage('init') {
          List params = []
                 List props = []
