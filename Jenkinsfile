@@ -1,8 +1,18 @@
 node {
-    parameters {
-            string(defaultValue: "TEST", description: 'What environment?', name: 'userFlag')
-            choice(choices: ['US-EAST-1', 'US-WEST-2'], description: 'What AWS region?', name: 'region')
-        }
+    properties([
+         parameters([
+           booleanParam(
+             defaultValue: false,
+             description: 'isFoo should be false',
+             name: 'isFoo'
+           ),
+           booleanParam(
+             defaultValue: true,
+             description: 'isBar should be true',
+             name: 'isBar'
+           ),
+         ])
+       ])
 
     stage('test1') {
         echo "ok"
