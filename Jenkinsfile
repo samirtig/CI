@@ -1,7 +1,4 @@
-import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
-node {
-
-  class dropDown
+class dropDown
   {
       def static newInst(name)
       {
@@ -32,6 +29,10 @@ node {
           return test
   }
    }
+   
+node {
+
+
     stage('init') {
          List params = []
                 List props = []
