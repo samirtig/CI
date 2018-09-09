@@ -47,7 +47,7 @@ node {
          def choice2
 
          List params = []
-              def dd = parameters {[
+              def dd = [
                               $class              : 'ParametersDefinitionProperty',
                               parameterDefinitions: [
                                       [
@@ -61,7 +61,7 @@ node {
                                               choices    : 'ccc\nddd',
                                               description: 'select another choice : ',
                                               name       : 'choice2'
-                                      ]]]}
+                                      ]]]
                 List props = []
 
                 Inst1 = dropDown.newInst("DDX")
