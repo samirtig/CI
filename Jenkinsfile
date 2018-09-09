@@ -47,21 +47,19 @@ node {
          def choice2
 
          List params = []
-              def dd = [
-                              $class              : 'ParametersDefinitionProperty',
-                              parameterDefinitions: [
-                                      [
-                                              $class     : 'ChoiceParameterDefinition',
-                                              choices    : 'aaa\nbbb',
-                                              description: 'select your choice : ',
-                                              name       : 'choice1'
-                                      ],
-                                      [
-                                              $class     : 'ChoiceParameterDefinition',
-                                              choices    : 'ccc\nddd',
-                                              description: 'select another choice : ',
-                                              name       : 'choice2'
-                                      ]]]
+             job('example') {
+                 parameters {
+                     activeChoiceParam('CHOICE-1') {
+                         description('Allows user choose from multiple choices')
+                         filterable()
+                         choiceType('SINGLE_SELECT')
+                         groovyScript {
+                             script('["choice1", "choice2"]')
+                             fallbackScript('"fallback choice"')
+                         }
+                     }
+                 }
+             }
                 List props = []
 
                 Inst1 = dropDown.newInst("DDX")
@@ -69,7 +67,7 @@ node {
 
                 params << booleanParam(name: 'BOOLX', defaultValue: true, description: '')
                 params << Inst1
-                params << dd
+                
 
                 props << parameters(params)
                 properties(props)
